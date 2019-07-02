@@ -1,0 +1,38 @@
+:host {
+  --toolbar-color: var(--color-background);
+}
+
+.pattern-view {
+  height: 100vh;
+  width: 100vw;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.toolbar {
+  position: sticky;
+  top: 0px;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  background-color: var(--toolbar-color);
+  -webkit-box-shadow: inset 0 -1.1px 0.2rem -0.1rem #aaa;
+  -moz-box-shadow: inset 0 -1.1px 0.2rem -0.1rem #aaa;
+  box-shadow: inset 0 -1.1px 0.2rem -0.1rem #aaa;
+  z-index: 1000;
+}
+
+.toolbar .toolbar-item {
+  padding: 0 0.5rem 0 0.5rem;
+}
+
+.toolbar .toolbar-item:first-child {
+  padding-left: 0;
+}
+
+.toolbar .toolbar-item:not(:last-child) {
+  border-right: 1px solid black;
+}
+
+.toolbar .toolbar-item:first-child {
+  border-right: none;
+}

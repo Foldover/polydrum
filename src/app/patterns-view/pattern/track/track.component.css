@@ -1,0 +1,33 @@
+:host {
+  flex: 1 1 17vh;
+  --track-color: #d0d0f0;
+}
+
+:host:hover {
+  -webkit-box-shadow: inset 0 0 0.3rem #aaa;
+  -moz-box-shadow: inset 0 0 0.3rem #aaa;
+  box-shadow: inset 0 0 0.3rem #aaa;
+  -webkit-transition: box-shadow 1s;
+  -moz-transition: box-shadow 1s;
+  -ms-transition: box-shadow 1s;
+  -o-transition: box-shadow 1s;
+  transition: box-shadow 0.3s;
+  background-color: #fff;
+}
+
+.track {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.track-properties-panel {
+  flex: 0 0 20%;
+  display: flex;
+  flex-direction: column;
+  border-right: 4px solid cornflowerblue;
+}
+
+.track-properties-panel-item {
+  margin: 0.25rem 0.5rem 0.25rem 0.5rem;
+}

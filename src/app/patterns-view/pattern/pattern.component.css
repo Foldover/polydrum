@@ -1,0 +1,30 @@
+:host {
+  flex: 1 1 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.pattern {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.pattern-header {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 4px solid cornflowerblue;
+}
+
+.name {
+  flex: 0 0 20%;
+  border-right: 4px solid cornflowerblue;
+}
+
+.name h3 {
+  margin: 0.5rem 1rem 0.5rem 1rem;
+}
+
+.transport {
+  flex: 0 0 80%;
+}

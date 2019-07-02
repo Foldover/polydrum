@@ -1,0 +1,134 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+  font-size: 16px;
+  font-weight: 500;
+  font-family: monospace;
+}
+
+:root {
+  --color-brand: #1034a6;
+  --color-background: #fafafa;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: var(--color-background);
+}
+
+input[type=checkbox].pd-toggle {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /*margin: 0.25rem 0.5rem 0.25rem 0.5rem;*/
+}
+
+input[type=checkbox].pd-toggle + span.pd-label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-brand);
+  cursor: pointer;
+}
+
+input[type=checkbox]:checked.pd-toggle + span.pd-label {
+  filter: brightness(20%);
+}
+
+input[type=text].pd-text-field {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-size: 1rem;
+  border: none;
+  border-bottom: 1px solid var(--color-brand);
+  margin: 0.25rem 0.5rem 0.25rem 0.5rem;
+  background-color: transparent;
+}
+
+input[type=number].pd-number {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0.25rem 0.5rem 0.25rem 0.5rem;
+}
+
+button.pd-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  background-color: transparent;
+  border: none;
+  color: var(--color-brand);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+button.pd-button:hover {
+  filter: brightness(150%);
+}
+
+input[type=file].pd-file-upload {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+input[type=file].pd-file-upload + span.pd-label {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  color: var(--color-brand);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+input[type=file].pd-file-upload + span.pd-label:hover {
+  filter: brightness(150%);
+}
+
+input[type=file].pd-file-audio {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+input[type=file].pd-file-audio + span.pd-label {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  color: var(--color-brand);
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0.25rem 0.5rem 0.25rem 0.5rem;
+}
+
+input[type=file].pd-file-audio + span.pd-label:hover {
+  filter: brightness(150%);
+}
+
+select.pd-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  color: var(--color-brand);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+select.pd-select:hover {
+  filter: brightness(150%);
+}

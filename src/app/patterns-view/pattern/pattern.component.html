@@ -1,0 +1,9 @@
+<div class="pattern">
+  <div class="pattern-header">
+    <span class="name">
+      <h3>{{(patternStateObservable | async).name}}</h3>
+    </span>
+    <span class="transport"></span>
+  </div>
+  <app-track *ngFor="let track of (patternStateObservable | async).tracks; let i = index;" [patternN]="patternN" [trackN]="i"></app-track>
+</div>

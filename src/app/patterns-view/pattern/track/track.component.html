@@ -1,0 +1,16 @@
+<div class="track">
+  <div class="track-properties-panel">
+    <span class="track-properties-panel-item">
+      <input type="text" class="pd-text-field" [value]="(trackStateObservable | async).name" (blur)="onNameInputBlur($event)" (keydown.enter)="onNameInputKeyDownEnter($event)">
+    </span>
+    <label class="track-properties-panel-item">
+      <input type="file" id="audioload" name="audioload" class="pd-file-audio" accept="audio/*" (change)="onAudioFileInputChange($event)">
+      <span class="pd-label">{{(trackStateObservable | async).filePath || 'Select file...'}}</span>
+    </label>
+    <label class="pd-toggle track-properties-panel-item"><input type="checkbox" class="pd-toggle" (change)="onMuteClick($event)"><span class="pd-label">Mute</span></label>
+    <label class="track-properties-panel-item">
+      <input type="number" min="1" max="32" class="pd-number" [value]="(trackStateObservable | async).steps.length" (change)="onStepsNumberChange($event)">
+    </label>
+  </div>
+  <app-step *ngFor="let step of (trackStateObservable | async).steps; let i = index;" [patternN]="patternN" [trackN]="trackN" [stepN]="i"></app-step>
+</div>

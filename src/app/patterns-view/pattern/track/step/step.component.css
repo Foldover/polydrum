@@ -1,0 +1,44 @@
+:host {
+  flex: 1 1 20px;
+  margin: 1rem;
+  --step-color: rgb(160, 100, 200);
+}
+
+.step {
+  border-radius: 1.5rem;
+  background-color: var(--step-color);
+  height: 100%;
+
+  -webkit-transition: filter 0.1s;
+  -moz-transition: filter 0.1s;
+  -ms-transition: filter 0.1s;
+  -o-transition: filter 0.1s;
+  transition: filter 0.1s;
+}
+
+.step:hover {
+  filter: brightness(110%);
+  -webkit-transition: filter 0.1s;
+  -moz-transition: filter 0.1s;
+  -ms-transition: filter 0.1s;
+  -o-transition: filter 0.1s;
+  transition: filter 0.1s;
+}
+
+.step.active {
+  filter: brightness(200%);
+  -webkit-transition: filter 0.1s;
+  -moz-transition: filter 0.1s;
+  -ms-transition: filter 0.1s;
+  -o-transition: filter 0.1s;
+  transition: filter 0.1s;
+}
+
+.step.active:hover {
+  filter: brightness(190%);
+  -webkit-transition: filter 0.1s;
+  -moz-transition: filter 0.1s;
+  -ms-transition: filter 0.1s;
+  -o-transition: filter 0.1s;
+  transition: filter 0.1s;
+}

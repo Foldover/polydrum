@@ -1,0 +1,18 @@
+<div class="pattern-view">
+  <div class="toolbar">
+    <input type="text" class="toolbar-item pd-text-field" [value]="(compositionStoreService.state$ | async).name" (blur)="onNameInputBlur($event)" (keydown.enter)="onNameInputKeyDownEnter($event)">
+    <label class="toolbar-item">
+      <input type="file" id="fileupload" name="fileupload" class="pd-file-upload" (change)="onFileInputChange($event)">
+      <span class="pd-label">Load</span>
+    </label>
+    <button class="pd-button toolbar-item" (click)="onSaveClick($event)">Save</button>
+    <select class="pd-select toolbar-item" (change)="onSelectedPatternChange($event)">
+      <option *ngFor="let pattern of (compositionStoreService.state$ | async).patterns; let i = index" [value]="pattern.uuid">{{pattern.name}}</option>
+    </select>
+    <button class="pd-button toolbar-item" (click)="onPlayClick($event)">Play</button>
+    <button class="pd-button toolbar-item" (click)="onPauseClick($event)">Pause</button>
+    <button class="pd-button toolbar-item" (click)="onStopClick($event)">Stop</button>
+    <input type="number" class="pd-number toolbar-item" [min]="1" [max]="900" (change)="onBPMChange($event)" [value]="(compositionStoreService.state$ | async).bpm">
+  </div>
+  <app-pattern *ngFor="let pattern of (compositionStoreService.state$ | async).patterns; let i = index;" [patternN]="i"></app-pattern>
+</div>
