@@ -1,3 +1,7 @@
-<p>
-  audio-permissions-dialog works!
-</p>
+<div class="overlay">
+  <div class="overlay-action-question">You must activate Audio to use this app. Do this now?</div>
+  <div class="overlay-action-answers">
+    <button class="pd-button" (click)="onYes($event)">Yes</button>
+    <button class="pd-button" (click)="onNo($event)">No</button>
+  </div>
+</div>

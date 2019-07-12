@@ -132,3 +132,25 @@ select.pd-select {
 select.pd-select:hover {
   filter: brightness(150%);
 }
+
+.overlay-action-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #51515151;
+  z-index: 1000000;
+}
+
+.overlay {
+
+}
+
+.overlay-action-question {
+  font-size: 2rem;
+}
+
+.overlay-action-answers {
+  font-size: 2rem;
+}

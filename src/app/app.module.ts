@@ -8,6 +8,7 @@ import { TrackComponent } from './patterns-view/pattern/track/track.component';
 import { StepComponent } from './patterns-view/pattern/track/step/step.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { AudioPermissionsDialogComponent } from './audio-permissions-dialog/audio-permissions-dialog.component';
+import { OverlayActionDirective } from './overlay-action.directive';
 
 @NgModule({
   declarations: [
@@ -16,13 +17,14 @@ import { AudioPermissionsDialogComponent } from './audio-permissions-dialog/audi
     PatternComponent,
     TrackComponent,
     StepComponent,
-    AudioPermissionsDialogComponent
+    AudioPermissionsDialogComponent,
+    OverlayActionDirective
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, AudioPermissionsDialogComponent]
 })
 export class AppModule { }

@@ -13,6 +13,10 @@
     <button class="pd-button toolbar-item" (click)="onPauseClick($event)">Pause</button>
     <button class="pd-button toolbar-item" (click)="onStopClick($event)">Stop</button>
     <input type="number" class="pd-number toolbar-item" [min]="1" [max]="900" (change)="onBPMChange($event)" [value]="(compositionStoreService.state$ | async).bpm">
+    <button class="pd-button toolbar-item" (click)="onAddPatternClick($event)">Add pattern</button>
+    <button class="pd-button toolbar-item" (click)="onAddTrackClick($event)">Add track</button>
   </div>
-  <app-pattern *ngFor="let pattern of (compositionStoreService.state$ | async).patterns; let i = index;" [patternN]="i"></app-pattern>
+  <ng-container *ngFor="let pattern of (compositionStoreService.state$ | async).patterns; let i = index;">
+    <app-pattern *ngIf="(compositionStoreService.state$ | async).currentlySelectedPattern === pattern.uuid" [patternN]="i"></app-pattern>
+  </ng-container>
 </div>

@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./audio-permissions-dialog.component.css']
 })
 export class AudioPermissionsDialogComponent implements OnInit {
-
+  public data;
   constructor() { }
 
   ngOnInit() {
   }
 
+  onYes($event: MouseEvent) {
+
+  }
+
+  onNo($event: MouseEvent) {
+
+  }
 }

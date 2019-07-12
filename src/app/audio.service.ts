@@ -39,6 +39,10 @@ export class AudioService {
     })).subscribe();
   }
 
+  public isInitialized() {
+    return !!this.audioContext;
+  }
+
   public async initialize() {
     this.audioContext = new AudioContext({
       latencyHint: 1024,

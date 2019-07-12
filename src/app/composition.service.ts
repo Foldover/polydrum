@@ -163,4 +163,49 @@ export class CompositionService {
     this.stateSnapshot.bpm = bpm;
     this.composition.update(this.stateSnapshot);
   }
+
+  public createStep(props?: Partial<IStep>): IStep {
+    const result = {} as IStep;
+    result.active = false;
+    Object.assign(result, props);
+    result.uuid = uuidLib.v4();
+    return result;
+}
+
+  public createTrack(props?: Partial<ITrack>): ITrack {
+    const result = {} as ITrack;
+    result.muted = false;
+    result.name = 'New track';
+    result.filePath = null;
+    result.steps = Array.from({length: 8}).map(this.createStep);
+    Object.assign(result, props);
+    result.uuid = uuidLib.v4();
+    return result;
+  }
+
+  public createPattern(props?: Partial<IPattern>): IPattern {
+    const result = {} as IPattern;
+    result.tracks = Array.from({length: 4}).map(this.createTrack.bind(this));
+    result.name = `Pattern ${this.stateSnapshot.patterns.length}`;
+    Object.assign(result, props);
+    result.uuid = uuidLib.v4();
+    return result;
+  }
+
+  public addPattern() {
+    const lastPattern = this.stateSnapshot.patterns[this.stateSnapshot.patterns.length - 1];
+    const newPattern = this.createPattern({
+      tracks: Array.from({length: lastPattern.tracks.length}).map(this.createTrack.bind(this)),
+    });
+    this.stateSnapshot.patterns.push(newPattern);
+    this.stateSnapshot.currentlySelectedPattern = newPattern.uuid;
+    this.composition.update(this.stateSnapshot);
+  }
+
+  public addTrack(patternUuid: string) {
+    const pattern = this.findPatternWithUUID(patternUuid);
+    const newTrack = this.createTrack();
+    pattern.tracks.push(newTrack);
+    this.composition.update(this.stateSnapshot);
+  }
 }

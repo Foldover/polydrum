@@ -3,7 +3,7 @@ import {CompositionStoreService} from '../composition-store.service';
 import {CompositionService} from '../composition.service';
 import {IPattern} from '../interfaces';
 import {map, tap} from 'rxjs/operators';
-import {Observable} from 'rxjs';
+import {Observable, pipe} from 'rxjs';
 import {AudioService} from '../audio.service';
 
 @Component({
@@ -13,7 +13,8 @@ import {AudioService} from '../audio.service';
 })
 export class PatternsViewComponent implements OnInit {
 
-  public currentlySelectedPattern: Observable<IPattern>;
+  public currentlySelectedPattern$: Observable<IPattern>;
+  private currentlySelectedPattern: IPattern;
 
   private name: string;
 
@@ -26,10 +27,13 @@ export class PatternsViewComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.currentlySelectedPattern = this.compositionStoreService.state$.pipe(
-      map(state => this.compositionService.findPatternWithUUID(state.currentlySelectedPattern))
+    this.currentlySelectedPattern$ = this.compositionStoreService.state$.pipe(
+      map(state => this.compositionService.findPatternWithUUID(state.currentlySelectedPattern)),
+      tap(pattern => {
+        this.currentlySelectedPattern = pattern;
+      }),
     );
-    this.currentlySelectedPattern.subscribe();
+    this.currentlySelectedPattern$.subscribe();
   }
 
   onSaveClick($event: MouseEvent) {
@@ -68,5 +72,14 @@ export class PatternsViewComponent implements OnInit {
   onBPMChange($event: Event) {
     this.compositionService.setBPM(parseInt(($event.target as HTMLInputElement).value, 10));
     this.audioService.setBPM(parseInt(($event.target as HTMLInputElement).value, 10));
+  }
+
+  onAddPatternClick($event: MouseEvent) {
+    this.compositionService.addPattern();
+
+  }
+
+  onAddTrackClick($event: MouseEvent) {
+    this.compositionService.addTrack(this.currentlySelectedPattern.uuid);
   }
 }

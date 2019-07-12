@@ -1,2 +1,5 @@
 <button class="pd-button audio-toggle" [ngClass]="{'active': audioOn}" (click)="onAudioToggleClick($event)">{{audioOn ? 'Audio on' : 'Audio off'}}</button>
 <app-patterns-view></app-patterns-view>
+<div class="overlay-action-layer">
+  <ng-template appOverlayAction></ng-template>
+</div>
